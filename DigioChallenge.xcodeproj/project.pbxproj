@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		314333212C726E1C008E7077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333202C726E1C008E7077 /* AppDelegate.swift */; };
+		314333232C726E1C008E7077 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333222C726E1C008E7077 /* SceneDelegate.swift */; };
+		314333252C726E1C008E7077 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333242C726E1C008E7077 /* HomeViewController.swift */; };
+		3143332A2C726E2B008E7077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 314333292C726E2B008E7077 /* Assets.xcassets */; };
+		3143332D2C726E2B008E7077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3143332B2C726E2B008E7077 /* LaunchScreen.storyboard */; };
+		314333382C726E2B008E7077 /* DigioChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333372C726E2B008E7077 /* DigioChallengeTests.swift */; };
+		314333422C726E2B008E7077 /* DigioChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333412C726E2B008E7077 /* DigioChallengeUITests.swift */; };
+		314333442C726E2B008E7077 /* DigioChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333432C726E2B008E7077 /* DigioChallengeUITestsLaunchTests.swift */; };
+		314333522C726E61008E7077 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333512C726E61008E7077 /* Network.swift */; };
+		314333542C726EC5008E7077 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333532C726EC5008E7077 /* HomeModel.swift */; };
+		314333572C726F80008E7077 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333562C726F80008E7077 /* CodeView.swift */; };
+		314333592C726FBB008E7077 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333582C726FBA008E7077 /* HomeRouter.swift */; };
+		314333602C727145008E7077 /* proximanova_bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3143335C2C727145008E7077 /* proximanova_bold.otf */; };
+		314333612C727145008E7077 /* proximanova_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3143335D2C727145008E7077 /* proximanova_light.otf */; };
+		314333622C727145008E7077 /* proximanova_black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3143335E2C727145008E7077 /* proximanova_black.otf */; };
+		314333632C727145008E7077 /* proximanova_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3143335F2C727145008E7077 /* proximanova_regular.ttf */; };
+		314333662C7275FC008E7077 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333652C7275FC008E7077 /* HomeViewModel.swift */; };
+		314333692C727755008E7077 /* HomeProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333682C727755008E7077 /* HomeProductCell.swift */; };
+		3143336B2C7278A1008E7077 /* HomeSpotlightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3143336A2C7278A1008E7077 /* HomeSpotlightItemCell.swift */; };
+		3143336D2C7278FB008E7077 /* HomeDigioCashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3143336C2C7278FB008E7077 /* HomeDigioCashCell.swift */; };
+		314333702C727AB2008E7077 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3143336F2C727AB2008E7077 /* UIImageView+Extension.swift */; };
+		314333722C727C2F008E7077 /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333712C727C2F008E7077 /* UIView+NSLayoutConstraint.swift */; };
+		314333742C72D228008E7077 /* HomeSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333732C72D228008E7077 /* HomeSectionHeaderView.swift */; };
+		314333762C72DE45008E7077 /* HomeSpotlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333752C72DE45008E7077 /* HomeSpotlightCell.swift */; };
+		314333782C72E729008E7077 /* HomeProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333772C72E729008E7077 /* HomeProductItemCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		314333342C726E2B008E7077 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 314333152C726E1C008E7077 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3143331C2C726E1C008E7077;
+			remoteInfo = DigioChallenge;
+		};
+		3143333E2C726E2B008E7077 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 314333152C726E1C008E7077 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3143331C2C726E1C008E7077;
+			remoteInfo = DigioChallenge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3143331D2C726E1C008E7077 /* DigioChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigioChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		314333202C726E1C008E7077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		314333222C726E1C008E7077 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		314333242C726E1C008E7077 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		314333292C726E2B008E7077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3143332C2C726E2B008E7077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3143332E2C726E2B008E7077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		314333332C726E2B008E7077 /* DigioChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigioChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		314333372C726E2B008E7077 /* DigioChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioChallengeTests.swift; sourceTree = "<group>"; };
+		3143333D2C726E2B008E7077 /* DigioChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigioChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		314333412C726E2B008E7077 /* DigioChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioChallengeUITests.swift; sourceTree = "<group>"; };
+		314333432C726E2B008E7077 /* DigioChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		314333512C726E61008E7077 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		314333532C726EC5008E7077 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		314333562C726F80008E7077 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		314333582C726FBA008E7077 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		3143335C2C727145008E7077 /* proximanova_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proximanova_bold.otf; sourceTree = "<group>"; };
+		3143335D2C727145008E7077 /* proximanova_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proximanova_light.otf; sourceTree = "<group>"; };
+		3143335E2C727145008E7077 /* proximanova_black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proximanova_black.otf; sourceTree = "<group>"; };
+		3143335F2C727145008E7077 /* proximanova_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proximanova_regular.ttf; sourceTree = "<group>"; };
+		314333652C7275FC008E7077 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		314333682C727755008E7077 /* HomeProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductCell.swift; sourceTree = "<group>"; };
+		3143336A2C7278A1008E7077 /* HomeSpotlightItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpotlightItemCell.swift; sourceTree = "<group>"; };
+		3143336C2C7278FB008E7077 /* HomeDigioCashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDigioCashCell.swift; sourceTree = "<group>"; };
+		3143336F2C727AB2008E7077 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		314333712C727C2F008E7077 /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
+		314333732C72D228008E7077 /* HomeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeaderView.swift; sourceTree = "<group>"; };
+		314333752C72DE45008E7077 /* HomeSpotlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpotlightCell.swift; sourceTree = "<group>"; };
+		314333772C72E729008E7077 /* HomeProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductItemCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3143331A2C726E1C008E7077 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		314333302C726E2B008E7077 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3143333A2C726E2B008E7077 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		314333142C726E1C008E7077 = {
+			isa = PBXGroup;
+			children = (
+				3143331F2C726E1C008E7077 /* DigioChallenge */,
+				314333362C726E2B008E7077 /* DigioChallengeTests */,
+				314333402C726E2B008E7077 /* DigioChallengeUITests */,
+				3143331E2C726E1C008E7077 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3143331E2C726E1C008E7077 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3143331D2C726E1C008E7077 /* DigioChallenge.app */,
+				314333332C726E2B008E7077 /* DigioChallengeTests.xctest */,
+				3143333D2C726E2B008E7077 /* DigioChallengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3143331F2C726E1C008E7077 /* DigioChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				314333642C72731D008E7077 /* Supporting Files */,
+				3143335A2C727128008E7077 /* Resource */,
+				314333552C726F42008E7077 /* Utils */,
+				314333502C726E3F008E7077 /* Home */,
+				3143332B2C726E2B008E7077 /* LaunchScreen.storyboard */,
+			);
+			path = DigioChallenge;
+			sourceTree = "<group>";
+		};
+		314333362C726E2B008E7077 /* DigioChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				314333372C726E2B008E7077 /* DigioChallengeTests.swift */,
+			);
+			path = DigioChallengeTests;
+			sourceTree = "<group>";
+		};
+		314333402C726E2B008E7077 /* DigioChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				314333412C726E2B008E7077 /* DigioChallengeUITests.swift */,
+				314333432C726E2B008E7077 /* DigioChallengeUITestsLaunchTests.swift */,
+			);
+			path = DigioChallengeUITests;
+			sourceTree = "<group>";
+		};
+		314333502C726E3F008E7077 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				314333672C72773D008E7077 /* Cells */,
+				314333242C726E1C008E7077 /* HomeViewController.swift */,
+				314333532C726EC5008E7077 /* HomeModel.swift */,
+				314333582C726FBA008E7077 /* HomeRouter.swift */,
+				314333652C7275FC008E7077 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		314333552C726F42008E7077 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3143336E2C727A89008E7077 /* Extensions */,
+				314333512C726E61008E7077 /* Network.swift */,
+				314333562C726F80008E7077 /* CodeView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3143335A2C727128008E7077 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				314333292C726E2B008E7077 /* Assets.xcassets */,
+				3143335B2C727131008E7077 /* Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3143335B2C727131008E7077 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3143335E2C727145008E7077 /* proximanova_black.otf */,
+				3143335C2C727145008E7077 /* proximanova_bold.otf */,
+				3143335D2C727145008E7077 /* proximanova_light.otf */,
+				3143335F2C727145008E7077 /* proximanova_regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		314333642C72731D008E7077 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				314333202C726E1C008E7077 /* AppDelegate.swift */,
+				314333222C726E1C008E7077 /* SceneDelegate.swift */,
+				3143332E2C726E2B008E7077 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		314333672C72773D008E7077 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3143337C2C72E7BD008E7077 /* Spotlight */,
+				3143337B2C72E7AA008E7077 /* SectionHeader */,
+				3143337A2C72E79D008E7077 /* DigioCash */,
+				314333792C72E78F008E7077 /* Products */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3143336E2C727A89008E7077 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3143336F2C727AB2008E7077 /* UIImageView+Extension.swift */,
+				314333712C727C2F008E7077 /* UIView+NSLayoutConstraint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		314333792C72E78F008E7077 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				314333772C72E729008E7077 /* HomeProductItemCell.swift */,
+				314333682C727755008E7077 /* HomeProductCell.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		3143337A2C72E79D008E7077 /* DigioCash */ = {
+			isa = PBXGroup;
+			children = (
+				3143336C2C7278FB008E7077 /* HomeDigioCashCell.swift */,
+			);
+			path = DigioCash;
+			sourceTree = "<group>";
+		};
+		3143337B2C72E7AA008E7077 /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				314333732C72D228008E7077 /* HomeSectionHeaderView.swift */,
+			);
+			path = SectionHeader;
+			sourceTree = "<group>";
+		};
+		3143337C2C72E7BD008E7077 /* Spotlight */ = {
+			isa = PBXGroup;
+			children = (
+				3143336A2C7278A1008E7077 /* HomeSpotlightItemCell.swift */,
+				314333752C72DE45008E7077 /* HomeSpotlightCell.swift */,
+			);
+			path = Spotlight;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3143331C2C726E1C008E7077 /* DigioChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 314333472C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallenge" */;
+			buildPhases = (
+				314333192C726E1C008E7077 /* Sources */,
+				3143331A2C726E1C008E7077 /* Frameworks */,
+				3143331B2C726E1C008E7077 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DigioChallenge;
+			productName = DigioChallenge;
+			productReference = 3143331D2C726E1C008E7077 /* DigioChallenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		314333322C726E2B008E7077 /* DigioChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3143334A2C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallengeTests" */;
+			buildPhases = (
+				3143332F2C726E2B008E7077 /* Sources */,
+				314333302C726E2B008E7077 /* Frameworks */,
+				314333312C726E2B008E7077 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				314333352C726E2B008E7077 /* PBXTargetDependency */,
+			);
+			name = DigioChallengeTests;
+			productName = DigioChallengeTests;
+			productReference = 314333332C726E2B008E7077 /* DigioChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3143333C2C726E2B008E7077 /* DigioChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3143334D2C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallengeUITests" */;
+			buildPhases = (
+				314333392C726E2B008E7077 /* Sources */,
+				3143333A2C726E2B008E7077 /* Frameworks */,
+				3143333B2C726E2B008E7077 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3143333F2C726E2B008E7077 /* PBXTargetDependency */,
+			);
+			name = DigioChallengeUITests;
+			productName = DigioChallengeUITests;
+			productReference = 3143333D2C726E2B008E7077 /* DigioChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		314333152C726E1C008E7077 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					3143331C2C726E1C008E7077 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					314333322C726E2B008E7077 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 3143331C2C726E1C008E7077;
+					};
+					3143333C2C726E2B008E7077 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 3143331C2C726E1C008E7077;
+					};
+				};
+			};
+			buildConfigurationList = 314333182C726E1C008E7077 /* Build configuration list for PBXProject "DigioChallenge" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 314333142C726E1C008E7077;
+			productRefGroup = 3143331E2C726E1C008E7077 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3143331C2C726E1C008E7077 /* DigioChallenge */,
+				314333322C726E2B008E7077 /* DigioChallengeTests */,
+				3143333C2C726E2B008E7077 /* DigioChallengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3143331B2C726E1C008E7077 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3143332D2C726E2B008E7077 /* LaunchScreen.storyboard in Resources */,
+				314333632C727145008E7077 /* proximanova_regular.ttf in Resources */,
+				3143332A2C726E2B008E7077 /* Assets.xcassets in Resources */,
+				314333612C727145008E7077 /* proximanova_light.otf in Resources */,
+				314333622C727145008E7077 /* proximanova_black.otf in Resources */,
+				314333602C727145008E7077 /* proximanova_bold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		314333312C726E2B008E7077 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3143333B2C726E2B008E7077 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		314333192C726E1C008E7077 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				314333252C726E1C008E7077 /* HomeViewController.swift in Sources */,
+				314333212C726E1C008E7077 /* AppDelegate.swift in Sources */,
+				3143336D2C7278FB008E7077 /* HomeDigioCashCell.swift in Sources */,
+				314333592C726FBB008E7077 /* HomeRouter.swift in Sources */,
+				314333692C727755008E7077 /* HomeProductCell.swift in Sources */,
+				314333662C7275FC008E7077 /* HomeViewModel.swift in Sources */,
+				314333702C727AB2008E7077 /* UIImageView+Extension.swift in Sources */,
+				3143336B2C7278A1008E7077 /* HomeSpotlightItemCell.swift in Sources */,
+				314333232C726E1C008E7077 /* SceneDelegate.swift in Sources */,
+				314333572C726F80008E7077 /* CodeView.swift in Sources */,
+				314333742C72D228008E7077 /* HomeSectionHeaderView.swift in Sources */,
+				314333542C726EC5008E7077 /* HomeModel.swift in Sources */,
+				314333522C726E61008E7077 /* Network.swift in Sources */,
+				314333782C72E729008E7077 /* HomeProductItemCell.swift in Sources */,
+				314333722C727C2F008E7077 /* UIView+NSLayoutConstraint.swift in Sources */,
+				314333762C72DE45008E7077 /* HomeSpotlightCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3143332F2C726E2B008E7077 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				314333382C726E2B008E7077 /* DigioChallengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		314333392C726E2B008E7077 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				314333422C726E2B008E7077 /* DigioChallengeUITests.swift in Sources */,
+				314333442C726E2B008E7077 /* DigioChallengeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		314333352C726E2B008E7077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3143331C2C726E1C008E7077 /* DigioChallenge */;
+			targetProxy = 314333342C726E2B008E7077 /* PBXContainerItemProxy */;
+		};
+		3143333F2C726E2B008E7077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3143331C2C726E1C008E7077 /* DigioChallenge */;
+			targetProxy = 3143333E2C726E2B008E7077 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3143332B2C726E2B008E7077 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3143332C2C726E2B008E7077 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		314333452C726E2B008E7077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		314333462C726E2B008E7077 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		314333482C726E2B008E7077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DigioChallenge/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		314333492C726E2B008E7077 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DigioChallenge/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3143334B2C726E2B008E7077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigioChallenge.app/DigioChallenge";
+			};
+			name = Debug;
+		};
+		3143334C2C726E2B008E7077 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigioChallenge.app/DigioChallenge";
+			};
+			name = Release;
+		};
+		3143334E2C726E2B008E7077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DigioChallenge;
+			};
+			name = Debug;
+		};
+		3143334F2C726E2B008E7077 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 395HQL23FJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wquadros.DigioChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DigioChallenge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		314333182C726E1C008E7077 /* Build configuration list for PBXProject "DigioChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				314333452C726E2B008E7077 /* Debug */,
+				314333462C726E2B008E7077 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		314333472C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				314333482C726E2B008E7077 /* Debug */,
+				314333492C726E2B008E7077 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3143334A2C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3143334B2C726E2B008E7077 /* Debug */,
+				3143334C2C726E2B008E7077 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3143334D2C726E2B008E7077 /* Build configuration list for PBXNativeTarget "DigioChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3143334E2C726E2B008E7077 /* Debug */,
+				3143334F2C726E2B008E7077 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 314333152C726E1C008E7077 /* Project object */;
+}
