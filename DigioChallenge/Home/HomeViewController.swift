@@ -152,7 +152,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             return CGSize(width: collectionView.bounds.width, height: 180)
         case 1:
-            return CGSize(width: collectionView.bounds.width - 48, height: 90)
+            return CGSize(width: collectionView.bounds.width - 48, height: 100)
         case 2:
             return CGSize(width: collectionView.bounds.width, height: 150)
         default:
@@ -199,7 +199,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             return CGSize(width: collectionView.bounds.width, height: 100)
         case 1, 2:
-            return CGSize(width: collectionView.bounds.width, height: 80)
+            return CGSize(width: collectionView.bounds.width, height: 65)
         default:
             return CGSize.zero
         }
