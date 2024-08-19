@@ -38,12 +38,12 @@ extension HomeProductItemCell {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            cardView.widthAnchor.constraint(equalToConstant: 100),
-            cardView.heightAnchor.constraint(equalToConstant: 100),
+            cardView.widthAnchor.constraint(equalToConstant: 130),
+            cardView.heightAnchor.constraint(equalToConstant: 130),
             imageView.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
             imageView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 50),
-            imageView.heightAnchor.constraint(equalToConstant: 50)
+            imageView.widthAnchor.constraint(equalToConstant: 60),
+            imageView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

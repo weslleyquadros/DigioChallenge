@@ -150,60 +150,44 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return CGSize(width: collectionView.bounds.width - 48, height: 180)
+            return CGSize(width: collectionView.bounds.width, height: 180)
         case 1:
             return CGSize(width: collectionView.bounds.width - 48, height: 90)
         case 2:
-            return CGSize(width: collectionView.bounds.width - 48, height: 120)
+            return CGSize(width: collectionView.bounds.width, height: 150)
         default:
             return CGSize.zero
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        switch section {
-        case 0, 2:
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        default:
-            return UIEdgeInsets.zero
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView: UICollectionReusableView
+
+        guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as? HomeSectionHeaderView else {
+            return UICollectionReusableView()
+        }
         
         if kind == UICollectionView.elementKindSectionHeader {
             switch indexPath.section {
             case 0:
-                let homeHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeHeaderView.reuseIdentifier, for: indexPath) as! HomeHeaderView
+                guard let homeHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeHeaderView.reuseIdentifier, for: indexPath) as? HomeHeaderView else {
+                    return UICollectionReusableView()
+                }
                 homeHeaderView.configure(userName: LocalizedString.homeTitle.localized)
                 headerView = homeHeaderView
                 
             case 1:
-                let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as! HomeSectionHeaderView
                 sectionHeaderView.configure(with: LocalizedString.digioCash.localized)
                 headerView = sectionHeaderView
                 
             case 2:
-                let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as! HomeSectionHeaderView
                 sectionHeaderView.configure(with: LocalizedString.productsSection.localized)
                 headerView = sectionHeaderView
                 
             default:
                 headerView = UICollectionReusableView()
             }
-            
-            // Start shimmer animation for loading headers
             headerView.startShimmering()
-            
             return headerView
             
         }

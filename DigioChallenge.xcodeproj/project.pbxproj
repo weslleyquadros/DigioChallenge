@@ -40,6 +40,7 @@
 		314A26322C731EF800796A24 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26312C731EF700796A24 /* ErrorView.swift */; };
 		314A26342C73272100796A24 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26332C73272100796A24 /* UIView+Shimmer.swift */; };
 		314A26362C73290B00796A24 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26352C73290B00796A24 /* CircleView.swift */; };
+		315C86592C737396002D80A7 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C86582C737396002D80A7 /* CarouselFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		314A26312C731EF700796A24 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		314A26332C73272100796A24 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
 		314A26352C73290B00796A24 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		315C86582C737396002D80A7 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				314333562C726F80008E7077 /* CodeView.swift */,
 				3143337D2C73163E008E7077 /* AppStyles.swift */,
 				314A262E2C731B4C00796A24 /* LocalizedString.swift */,
+				315C86582C737396002D80A7 /* CarouselFlowLayout.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				314333722C727C2F008E7077 /* UIView+NSLayoutConstraint.swift in Sources */,
 				314333762C72DE45008E7077 /* HomeSpotlightCell.swift in Sources */,
 				314333802C7317F9008E7077 /* UILabel+ NSAttributedString.swift in Sources */,
+				315C86592C737396002D80A7 /* CarouselFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

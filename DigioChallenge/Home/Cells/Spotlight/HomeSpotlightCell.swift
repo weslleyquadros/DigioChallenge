@@ -12,10 +12,10 @@ final class HomeSpotlightCell: UICollectionViewCell, CodeView {
     static let reuseIdentifier = "HomeSpotlightCell"
 
     private let horizontalCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CarouselFlowLayout())
+        collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = false
         return collectionView
     }()
 
@@ -78,11 +78,12 @@ extension HomeSpotlightCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 48, height: 160)
+        let itemWidth = collectionView.bounds.width - 72
+        return CGSize(width: itemWidth, height: collectionView.bounds.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
