@@ -18,36 +18,69 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
 
+    private let errorView = ErrorView()
+
     init(viewModel: HomeViewModelProtocol = HomeViewModel()) {
         self.viewModel = viewModel
-//        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()) // Temporarily initialize with a basic layout
         super.init(nibName: nil, bundle: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Set up the actual layout here
-//        collectionView.collectionViewLayout = createLayout()
         setupBindings()
         viewModel.fetchHomeData()
         setupCollectionView()
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func showErrorView() {
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(errorView)
+        
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        errorView.setRetryAction(target: self, action: #selector(retryButtonTapped))
+    }
+
+    func removeErrorView() {
+        errorView.removeFromSuperview()
+    }
+
+    @objc private func retryButtonTapped() {
+        removeErrorView()
+        viewModel.fetchHomeData()
+    }
+
     private func setupBindings() {
-        viewModel.updateUI = { [weak self] in
+        viewModel.onSuccess = { [weak self] in
             self?.updateUI()
+        }
+
+        viewModel.onError = { [weak self] error in
+            self?.showErrorView()
         }
     }
 
     private func updateUI() {
-        if let data = viewModel.homeData {
+        if let _ = viewModel.homeData {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+                self.collectionView.layoutIfNeeded()
+                self.collectionView.visibleCells.forEach { cell in
+                    cell.contentView.stopShimmering()
+                }
+                
+                self.collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).forEach { header in
+                    header.stopShimmering()
+                }
             }
         }
     }
@@ -79,23 +112,36 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch viewModel.sections[indexPath.section] {
-        case .spotlight(let spotlights):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSpotlightCell.reuseIdentifier, for: indexPath) as! HomeSpotlightCell
-            cell.configure(with: spotlights)
-            return cell
+            let cell: UICollectionViewCell
+            
+            switch viewModel.sections[indexPath.section] {
+            case .spotlight(let spotlights):
+                guard let spotlightCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSpotlightCell.reuseIdentifier, for: indexPath) as? HomeSpotlightCell else {
+                    return UICollectionViewCell()
+                }
+                spotlightCell.configure(with: spotlights)
+                cell = spotlightCell
 
-        case .products(let products):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductCell.reuseIdentifier, for: indexPath) as! HomeProductCell
-            cell.configure(with: products)
-            return cell
+            case .products(let products):
+                guard let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductCell.reuseIdentifier, for: indexPath) as? HomeProductCell else {
+                    return UICollectionViewCell()
+                }
+                productCell.configure(with: products)
+                cell = productCell
 
-        case .cash(let cash):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeDigioCashCell.reuseIdentifier, for: indexPath) as! HomeDigioCashCell
-            cell.configure(with: cash)
+            case .cash(let cash):
+                guard let cashCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeDigioCashCell.reuseIdentifier, for: indexPath) as? HomeDigioCashCell else {
+                    return UICollectionViewCell()
+                }
+                cashCell.configure(with: cash)
+                cell = cashCell
+            }
+            
+            // Start shimmer animation for loading
+            cell.contentView.startShimmering()
+            
             return cell
         }
-    }
 
 }
     
@@ -117,45 +163,61 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch section {
         case 0, 2:
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20) // Inset para carrosséis
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         default:
             return UIEdgeInsets.zero
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // Espaçamento entre os cards
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // Espaçamento entre os itens na mesma linha
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as! HomeSectionHeaderView
-        switch indexPath.section {
-        case 0:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeHeaderView.reuseIdentifier, for: indexPath) as! HomeHeaderView
-            headerView.configure(userName: "Olá, Maria")
-        case 1:
-            headerView.configure(with: "digio Cash")
-        case 2:
-            headerView.configure(with: "Produtos")
-        default:
-            return UICollectionReusableView()
+        let headerView: UICollectionReusableView
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            switch indexPath.section {
+            case 0:
+                let homeHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeHeaderView.reuseIdentifier, for: indexPath) as! HomeHeaderView
+                homeHeaderView.configure(userName: LocalizedString.homeTitle.localized)
+                headerView = homeHeaderView
+                
+            case 1:
+                let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as! HomeSectionHeaderView
+                sectionHeaderView.configure(with: LocalizedString.digioCash.localized)
+                headerView = sectionHeaderView
+                
+            case 2:
+                let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionHeaderView.reuseIdentifier, for: indexPath) as! HomeSectionHeaderView
+                sectionHeaderView.configure(with: LocalizedString.productsSection.localized)
+                headerView = sectionHeaderView
+                
+            default:
+                headerView = UICollectionReusableView()
+            }
+            
+            // Start shimmer animation for loading headers
+            headerView.startShimmering()
+            
+            return headerView
+            
         }
-        return headerView
+        return UICollectionReusableView()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
-            return CGSize(width: collectionView.bounds.width, height: 100) // Altura do header
+            return CGSize(width: collectionView.bounds.width, height: 100)
         case 1, 2:
-            return CGSize(width: collectionView.bounds.width, height: 80) // Altura do header
+            return CGSize(width: collectionView.bounds.width, height: 80)
         default:
-            return CGSize(width: collectionView.bounds.width, height: 10) // Altura do header
+            return CGSize.zero
         }
     }
 }
-

@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  DigioChallenge
+
+  Created by Weslley Tavares de Aguiar e Quadros on 19/08/24.
+  
+*/
+
+"home_title" = "Olá, Maria";
+"home_products_section" = "Produtos";
+"home_digio_cash" = "digio Cash";
+"home_generic_error" = "Erro ao acessar a tela, tente novamente";

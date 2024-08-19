@@ -32,6 +32,14 @@
 		314333742C72D228008E7077 /* HomeSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333732C72D228008E7077 /* HomeSectionHeaderView.swift */; };
 		314333762C72DE45008E7077 /* HomeSpotlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333752C72DE45008E7077 /* HomeSpotlightCell.swift */; };
 		314333782C72E729008E7077 /* HomeProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333772C72E729008E7077 /* HomeProductItemCell.swift */; };
+		3143337E2C73163E008E7077 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3143337D2C73163E008E7077 /* AppStyles.swift */; };
+		314333802C7317F9008E7077 /* UILabel+ NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3143337F2C7317F9008E7077 /* UILabel+ NSAttributedString.swift */; };
+		314333822C731858008E7077 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314333812C731858008E7077 /* HomeHeaderView.swift */; };
+		314A262B2C731B0400796A24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 314A262A2C731B0400796A24 /* Localizable.strings */; };
+		314A262F2C731B4C00796A24 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A262E2C731B4C00796A24 /* LocalizedString.swift */; };
+		314A26322C731EF800796A24 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26312C731EF700796A24 /* ErrorView.swift */; };
+		314A26342C73272100796A24 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26332C73272100796A24 /* UIView+Shimmer.swift */; };
+		314A26362C73290B00796A24 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A26352C73290B00796A24 /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +89,14 @@
 		314333732C72D228008E7077 /* HomeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeaderView.swift; sourceTree = "<group>"; };
 		314333752C72DE45008E7077 /* HomeSpotlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpotlightCell.swift; sourceTree = "<group>"; };
 		314333772C72E729008E7077 /* HomeProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductItemCell.swift; sourceTree = "<group>"; };
+		3143337D2C73163E008E7077 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
+		3143337F2C7317F9008E7077 /* UILabel+ NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ NSAttributedString.swift"; sourceTree = "<group>"; };
+		314333812C731858008E7077 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		314A262A2C731B0400796A24 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		314A262E2C731B4C00796A24 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		314A26312C731EF700796A24 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		314A26332C73272100796A24 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
+		314A26352C73290B00796A24 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +176,7 @@
 		314333502C726E3F008E7077 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				314A26302C731EE100796A24 /* Components */,
 				314333672C72773D008E7077 /* Cells */,
 				314333242C726E1C008E7077 /* HomeViewController.swift */,
 				314333532C726EC5008E7077 /* HomeModel.swift */,
@@ -175,6 +192,8 @@
 				3143336E2C727A89008E7077 /* Extensions */,
 				314333512C726E61008E7077 /* Network.swift */,
 				314333562C726F80008E7077 /* CodeView.swift */,
+				3143337D2C73163E008E7077 /* AppStyles.swift */,
+				314A262E2C731B4C00796A24 /* LocalizedString.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -184,6 +203,7 @@
 			children = (
 				314333292C726E2B008E7077 /* Assets.xcassets */,
 				3143335B2C727131008E7077 /* Fonts */,
+				314A262A2C731B0400796A24 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -225,6 +245,8 @@
 			children = (
 				3143336F2C727AB2008E7077 /* UIImageView+Extension.swift */,
 				314333712C727C2F008E7077 /* UIView+NSLayoutConstraint.swift */,
+				3143337F2C7317F9008E7077 /* UILabel+ NSAttributedString.swift */,
+				314A26332C73272100796A24 /* UIView+Shimmer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				314333732C72D228008E7077 /* HomeSectionHeaderView.swift */,
+				314333812C731858008E7077 /* HomeHeaderView.swift */,
 			);
 			path = SectionHeader;
 			sourceTree = "<group>";
@@ -261,6 +284,15 @@
 				314333752C72DE45008E7077 /* HomeSpotlightCell.swift */,
 			);
 			path = Spotlight;
+			sourceTree = "<group>";
+		};
+		314A26302C731EE100796A24 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				314A26312C731EF700796A24 /* ErrorView.swift */,
+				314A26352C73290B00796A24 /* CircleView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +402,7 @@
 				3143332D2C726E2B008E7077 /* LaunchScreen.storyboard in Resources */,
 				314333632C727145008E7077 /* proximanova_regular.ttf in Resources */,
 				3143332A2C726E2B008E7077 /* Assets.xcassets in Resources */,
+				314A262B2C731B0400796A24 /* Localizable.strings in Resources */,
 				314333612C727145008E7077 /* proximanova_light.otf in Resources */,
 				314333622C727145008E7077 /* proximanova_black.otf in Resources */,
 				314333602C727145008E7077 /* proximanova_bold.otf in Resources */,
@@ -399,11 +432,17 @@
 			files = (
 				314333252C726E1C008E7077 /* HomeViewController.swift in Sources */,
 				314333212C726E1C008E7077 /* AppDelegate.swift in Sources */,
+				314A262F2C731B4C00796A24 /* LocalizedString.swift in Sources */,
+				3143337E2C73163E008E7077 /* AppStyles.swift in Sources */,
+				314A26322C731EF800796A24 /* ErrorView.swift in Sources */,
 				3143336D2C7278FB008E7077 /* HomeDigioCashCell.swift in Sources */,
 				314333592C726FBB008E7077 /* HomeRouter.swift in Sources */,
+				314A26362C73290B00796A24 /* CircleView.swift in Sources */,
 				314333692C727755008E7077 /* HomeProductCell.swift in Sources */,
 				314333662C7275FC008E7077 /* HomeViewModel.swift in Sources */,
 				314333702C727AB2008E7077 /* UIImageView+Extension.swift in Sources */,
+				314333822C731858008E7077 /* HomeHeaderView.swift in Sources */,
+				314A26342C73272100796A24 /* UIView+Shimmer.swift in Sources */,
 				3143336B2C7278A1008E7077 /* HomeSpotlightItemCell.swift in Sources */,
 				314333232C726E1C008E7077 /* SceneDelegate.swift in Sources */,
 				314333572C726F80008E7077 /* CodeView.swift in Sources */,
@@ -413,6 +452,7 @@
 				314333782C72E729008E7077 /* HomeProductItemCell.swift in Sources */,
 				314333722C727C2F008E7077 /* UIView+NSLayoutConstraint.swift in Sources */,
 				314333762C72DE45008E7077 /* HomeSpotlightCell.swift in Sources */,
+				314333802C7317F9008E7077 /* UILabel+ NSAttributedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

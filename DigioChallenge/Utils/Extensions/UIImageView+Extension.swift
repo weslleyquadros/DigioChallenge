@@ -11,7 +11,7 @@ extension UIImageView {
     func loadImage(from urlString: String) {
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {
-                self.image = UIImage(named: "no-image-icon")
+                self.image = AppStyle.Assets.noImageIcon
             }
             return
         }
@@ -19,7 +19,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 DispatchQueue.main.async {
-                    self.image = UIImage(named: "no-image-icon")
+                    self.image = AppStyle.Assets.noImageIcon
                 }
                 return
             }
@@ -30,7 +30,7 @@ extension UIImageView {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.image = UIImage(named: "no-image-icon")
+                    self.image = AppStyle.Assets.noImageIcon
                 }
             }
         }.resume()

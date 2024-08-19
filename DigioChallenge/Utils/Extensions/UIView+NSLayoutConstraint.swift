@@ -60,15 +60,17 @@ extension UIView {
     
     /// Method to define constraints using anchors
     func anchor(top: NSLayoutYAxisAnchor? = nil,
-                 leading: NSLayoutXAxisAnchor? = nil,
-                 bottom: NSLayoutYAxisAnchor? = nil,
-                 trailing: NSLayoutXAxisAnchor? = nil,
-                 paddingTop: CGFloat = 0,
-                 paddingLeading: CGFloat = 0,
-                 paddingBottom: CGFloat = 0,
-                 paddingTrailing: CGFloat = 0,
-                 width: CGFloat? = nil,
-                 height: CGFloat? = nil) {
+                leading: NSLayoutXAxisAnchor? = nil,
+                bottom: NSLayoutYAxisAnchor? = nil,
+                trailing: NSLayoutXAxisAnchor? = nil,
+                paddingTop: CGFloat = 0,
+                paddingLeading: CGFloat = 0,
+                paddingBottom: CGFloat = 0,
+                paddingTrailing: CGFloat = 0,
+                width: CGFloat? = nil,
+                height: CGFloat? = nil,
+                centerX: NSLayoutXAxisAnchor? = nil,
+                centerY: NSLayoutYAxisAnchor? = nil) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -90,5 +92,12 @@ extension UIView {
         if let height = height {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
+        if let centerX = centerX {
+            centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        if let centerY = centerY {
+            centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
     }
+
 }
