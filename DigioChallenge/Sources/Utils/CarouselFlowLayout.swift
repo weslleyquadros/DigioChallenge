@@ -8,7 +8,7 @@
 import UIKit
 
 final class CarouselFlowLayout: UICollectionViewFlowLayout {
-    
+
     override func prepare() {
         super.prepare()
 

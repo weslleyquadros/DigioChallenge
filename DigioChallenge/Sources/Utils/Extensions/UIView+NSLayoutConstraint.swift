@@ -111,7 +111,11 @@ extension UIView {
         constraint.isActive = true
     }
 
-    private func setupLeadingConstraint(leading: NSLayoutXAxisAnchor?, relation: ConstraintRelation, constant: CGFloat) {
+    private func setupLeadingConstraint(
+        leading: NSLayoutXAxisAnchor?,
+        relation: ConstraintRelation,
+        constant: CGFloat
+    ) {
         guard let leading = leading else { return }
         let constraint: NSLayoutConstraint
         switch relation {
@@ -139,7 +143,11 @@ extension UIView {
         constraint.isActive = true
     }
 
-    private func setupTrailingConstraint(trailing: NSLayoutXAxisAnchor?, relation: ConstraintRelation, constant: CGFloat) {
+    private func setupTrailingConstraint(
+        trailing: NSLayoutXAxisAnchor?,
+        relation: ConstraintRelation,
+        constant: CGFloat
+    ) {
         guard let trailing = trailing else { return }
         let constraint: NSLayoutConstraint
         switch relation {

@@ -11,7 +11,7 @@ final class DetailsView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         label.font = AppStyle.Fonts.bold(size: 28)
         label.textColor = AppStyle.Colors.primary
         return label
@@ -22,12 +22,17 @@ final class DetailsView: UIView {
         view.backgroundColor = .white
         view.layer.cornerRadius = 24
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.shadowColor = AppStyle.Colors.primary.cgColor
+        view.layer.shadowOffset = CGSize(width: .zero, height: 2)
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.5
+        view.layer.masksToBounds = false
         return view
     }()
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         label.textColor = AppStyle.Colors.secondary
         label.font = AppStyle.Fonts.light(size: 18)
         return label
