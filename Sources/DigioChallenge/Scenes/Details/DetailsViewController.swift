@@ -7,12 +7,14 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
 
     var detailModel: ProductDetailModel
+    var mainView: DetailsView
 
     init(model: ProductDetailModel) {
         self.detailModel = model
+        self.mainView = DetailsView()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -24,11 +26,9 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = AppStyle.Colors.tealColor
-        self.navigationController?.navigationBar.topItem?.title = ""
+        title = ""
 
-        let view = DetailsView()
-        self.view = view
-        view.configure(withModel: detailModel)
+        self.view = mainView
+        mainView.configure(withModel: detailModel)
     }
-
 }

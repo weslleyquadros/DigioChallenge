@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class DetailsView: UIView {
+class DetailsView: UIView {
 
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = .zero
         label.font = AppStyle.Fonts.bold(size: 28)
@@ -17,7 +17,7 @@ final class DetailsView: UIView {
         return label
     }()
 
-    private lazy var contentView: UIView = {
+    lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 24
@@ -30,7 +30,7 @@ final class DetailsView: UIView {
         return view
     }()
 
-    private lazy var descriptionLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = .zero
         label.textColor = AppStyle.Colors.secondary
@@ -38,7 +38,7 @@ final class DetailsView: UIView {
         return label
     }()
 
-    private lazy var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView

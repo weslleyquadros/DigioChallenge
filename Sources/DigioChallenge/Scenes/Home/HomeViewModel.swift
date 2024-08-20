@@ -17,32 +17,24 @@ protocol HomeViewModelProtocol {
 
 final class HomeViewModel: HomeViewModelProtocol {
 
+    private let service: HomeServiceProtocol
+
     var homeData: HomeModel?
     var onSuccess: (() -> Void)?
     var onError: ((Error) -> Void)?
     var sections: [HomeSection] = []
 
+    init(networkService: HomeServiceProtocol = HomeService()) {
+        self.service = networkService
+    }
+
     func fetchHomeData() {
-        let net = NetworkRequest()
         var updatedSections: [HomeSection] = []
-        net.make(request: HomeRouter.home) { [weak self] result in
+        service.fetchHomeData { [weak self] result in
             guard let self = self else { return }
 
-            guard let response = result.data else {
-                DispatchQueue.main.async {
-                    self.onError?(
-                        NSError(
-                            domain: "",
-                            code: 0,
-                            userInfo: [NSLocalizedDescriptionKey: "Failed to load data."]
-                        )
-                    )
-                }
-                return
-            }
-
-            do {
-                let model = try JSONDecoder().decode(HomeModel.self, from: response)
+            switch result {
+            case .success(let model):
                 updatedSections = [.spotlight(model.spotlight),
                                    .cash(model.cash),
                                    .products(model.products)]
@@ -52,11 +44,12 @@ final class HomeViewModel: HomeViewModelProtocol {
                     self.homeData = model
                     self.onSuccess?()
                 }
-            } catch {
+            case .failure(let error):
                 DispatchQueue.main.async {
                     self.onError?(error)
                 }
             }
         }
     }
+
 }

@@ -28,7 +28,11 @@ final class DetailsViewTestCase: XCTestCase {
     }
 
     func testConfigureValues() {
-        sut.configure(withModel: ProductDetailModel(title: "ProductName", imageURL: "image://teste", description: "Description"))
+        sut.configure(withModel: ProductDetailModel(
+            title: "ProductName",
+            imageURL: "image://teste",
+            description: "Description")
+        )
         XCTAssertEqual(sut.titleLabel.text, "ProductName")
         XCTAssertEqual(sut.descriptionLabel.text, "Description")
     }

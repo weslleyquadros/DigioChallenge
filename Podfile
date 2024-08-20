@@ -12,10 +12,6 @@ target 'DigioChallenge' do
     inherit! :search_paths
     # Pods for testing
   end
-
-  target 'DigioChallengeUITests' do
-    # Pods for testing
-  end
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|

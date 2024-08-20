@@ -21,7 +21,7 @@ final class ErrorViewTestCase: XCTestCase {
     }
 
     func testDefaultValues() throws {
-        XCTAssertEqual(sut.messageLabel.text, "Erro ao acessar a tela, tente novamente")
+        XCTAssertEqual(sut.messageLabel.text, LocalizedString.genericError.localized)
     }
 
 }

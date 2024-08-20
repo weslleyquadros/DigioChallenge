@@ -13,9 +13,9 @@ protocol HomeViewControllerClickDelegate: AnyObject {
 
 class HomeViewController: UIViewController {
 
-    public var delegate: MainCoordinatorDelegate?
-    private var viewModel: HomeViewModelProtocol
-    private let collectionView: UICollectionView = {
+    weak var delegate: MainCoordinatorDelegate?
+    var viewModel: HomeViewModelProtocol
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
 
-    private let errorView = ErrorView()
+    let errorView = ErrorView()
 
     init(viewModel: HomeViewModelProtocol = HomeViewModel()) {
         self.viewModel = viewModel
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
         errorView.removeFromSuperview()
     }
 
-    @objc private func retryButtonTapped() {
+    @objc func retryButtonTapped() {
         removeErrorView()
         viewModel.fetchHomeData()
     }

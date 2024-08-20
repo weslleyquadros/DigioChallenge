@@ -2,47 +2,54 @@ name: DigioChallenge
 options:
   bundleIdPrefix: com.weslleyquadros
   deploymentTarget:
-    iOS: '13.0'
+    iOS: '12.0'
 
 targets:
   DigioChallenge:
     type: application
     platform: iOS
     sources:
-      - path: DigioChallenge/Sources
+      - path: Sources/DigioChallenge
     resources:
-      - path: DigioChallenge/Resources
-      - path: DigioChallenge/Base.lproj
+      - path: Resources
+    info:
+        path: Info.plist
+        properties:
+          UIAppFonts:
+            - proximanova_regular.ttf
+            - proximanova_black.otf
+            - proximanova_bold.otf
+            - proximanova_light.otf
+          UILaunchStoryboardName: LaunchScreen
+          UISupportedInterfaceOrientations:
+            - UIInterfaceOrientationPortrait
     settings:
-      base:
-        infoPlist: DigioChallenge/Supporting Files/Info.plist
+        BUILD_LIBRARY_FOR_DISTRIBUTION: YES
     preBuildScripts:
       - name: SwiftLint
         script: |
-          if which swiftlint >/dev/null; then
-            swiftlint
-          else
-            echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
-          fi
+          # Adds support for Apple Silicon brew directory
+            export PATH="$PATH:/opt/homebrew/bin"
+
+            if which swiftlint >/dev/null; then
+                swiftlint
+            else
+                echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+            fi
+
     scheme:
       testTargets:
         - DigioChallengeTests
-        - DigioChallengeUITests
+      gatherCoverageData: true
+      coverageTargets:
+        - DigioChallenge
 
   DigioChallengeTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - path: DigioChallengeTests
-    settings:
-      base:
-        infoPlist: DigioChallenge/Supporting Files/Info.plist
-
-  DigioChallengeUITests:
-    type: bundle.ui-testing
-    platform: iOS
-    sources:
-      - path: DigioChallengeUITests
-    settings:
-      base:
-        infoPlist: DigioChallenge/Supporting Files/Info.plist
+      - Tests/DigioChallengeTests
+    info:
+        path: Tests/Info.plist
+    dependencies:
+      - target: DigioChallenge
