@@ -1,0 +1,20 @@
+# Xcode
+*.xcuserstate
+*.xcuserdata
+*.xcworkspace
+*.xcodeproj
+*.xcuserstate
+*.xcuserdata
+
+# Build
+build/
+DerivedData/
+
+# Pods
+Pods/
+
+# CocoaPods
+Podfile.lock
+
+# Carthage
+Carthage/
