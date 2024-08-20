@@ -18,6 +18,7 @@ final class HomeSpotlightCell: UICollectionViewCell, CodeView {
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = false
+        collectionView.backgroundColor = .white
         return collectionView
     }()
 
@@ -29,6 +30,7 @@ final class HomeSpotlightCell: UICollectionViewCell, CodeView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         setupViews()
     }
 

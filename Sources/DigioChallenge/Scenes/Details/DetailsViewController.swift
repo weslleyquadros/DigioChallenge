@@ -26,7 +26,7 @@ final class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = AppStyle.Colors.tealColor
-        title = ""
+        navigationController?.navigationBar.topItem?.title = ""
 
         self.view = mainView
         mainView.configure(withModel: detailModel)

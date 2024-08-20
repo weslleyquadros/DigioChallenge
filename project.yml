@@ -23,6 +23,7 @@ targets:
           UILaunchStoryboardName: LaunchScreen
           UISupportedInterfaceOrientations:
             - UIInterfaceOrientationPortrait
+          UIUserInterfaceStyle: "Light"
     settings:
         BUILD_LIBRARY_FOR_DISTRIBUTION: YES
     preBuildScripts:

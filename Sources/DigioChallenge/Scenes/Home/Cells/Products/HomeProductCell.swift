@@ -19,6 +19,7 @@ class HomeProductCell: UICollectionViewCell, CodeView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .white
         return collectionView
     }()
 
