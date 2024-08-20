@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeViewControllerClickDelegate: AnyObject {
-    func clickCell(name: String, description: String)
+    func clickCell(with model: ProductDetailModel)
 }
 
 class HomeViewController: UIViewController {
@@ -137,6 +137,7 @@ extension HomeViewController: UICollectionViewDataSource {
                     return UICollectionViewCell()
                 }
                 spotlightCell.configure(with: spotlights)
+                spotlightCell.setDelegate(self)
                 cell = spotlightCell
 
             case .products(let products):
@@ -147,6 +148,7 @@ extension HomeViewController: UICollectionViewDataSource {
                     return UICollectionViewCell()
                 }
                 productCell.configure(with: products)
+                productCell.setDelegate(self)
                 cell = productCell
 
             case .cash(let cash):
@@ -250,13 +252,15 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             guard let cash = viewModel.homeData?.cash else { return }
-            self.clickCell(name: cash.title, description: cash.description)
+            self.clickCell(with: ProductDetailModel(title: cash.title,
+                                                    imageURL: cash.bannerURL,
+                                                    description: cash.description))
         }
     }
 }
 
 extension HomeViewController: HomeViewControllerClickDelegate {
-    func clickCell(name: String, description: String) {
-        self.delegate?.navigation(action: .details(name: name, description: description))
+    func clickCell(with model: ProductDetailModel) {
+        self.delegate?.navigation(action: .details(model: model))
     }
 }

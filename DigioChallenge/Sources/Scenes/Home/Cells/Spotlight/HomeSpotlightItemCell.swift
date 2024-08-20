@@ -11,8 +11,17 @@ final class HomeSpotlightItemCell: UICollectionViewCell, CodeView {
 
     static let reuseIdentifier = "HomeCardItemCell"
 
-    private let imageView = UIImageView()
-    private let cardView = UIView()
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+
+    private lazy var cardView: UIView = {
+        let cardView = UIView()
+        cardView.backgroundColor = .white
+        return cardView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,7 +54,6 @@ extension HomeSpotlightItemCell {
     }
 
     func setupAdditionalConfiguration() {
-        cardView.backgroundColor = .white
         cardView.layer.cornerRadius = 12
         cardView.layer.shadowColor = UIColor.black.cgColor
         cardView.layer.shadowOpacity = 0.2

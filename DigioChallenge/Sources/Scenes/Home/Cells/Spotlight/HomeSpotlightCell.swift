@@ -1,5 +1,5 @@
 //
-//  HomeProductCell.swift
+//  HomeSpotlightCell.swift
 //  DigioChallenge
 //
 //  Created by Weslley Tavares de Aguiar e Quadros on 18/08/24.
@@ -7,26 +7,26 @@
 
 import UIKit
 
-class HomeProductCell: UICollectionViewCell, CodeView {
+final class HomeSpotlightCell: UICollectionViewCell, CodeView {
 
-    static let reuseIdentifier = "HomeProductCell"
+    static let reuseIdentifier = "HomeSpotlightCell"
 
-    var delegate: HomeViewControllerClickDelegate?
+    private weak var delegate: HomeViewControllerClickDelegate?
 
     private let horizontalCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CarouselFlowLayout())
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = false
         return collectionView
     }()
 
-    var viewModel: [Product]? {
+    var viewModel: [Spotlight]? {
         didSet {
             horizontalCollectionView.reloadData()
         }
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -36,38 +36,42 @@ class HomeProductCell: UICollectionViewCell, CodeView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with model: [Product]) {
+    func configure(with model: [Spotlight]) {
         viewModel = model
     }
 
+    func setDelegate(_ delegate: HomeViewControllerClickDelegate) {
+        self.delegate = delegate
+    }
 }
 
 // MARK: - CodeView
 
-extension HomeProductCell {
+extension HomeSpotlightCell {
     func buildViewHierarchy() {
         contentView.addSubview(horizontalCollectionView)
     }
 
     func setupConstraints() {
-        horizontalCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            horizontalCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            horizontalCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            horizontalCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            horizontalCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
+        horizontalCollectionView.anchor(
+            top: contentView.topAnchor,
+            leading: contentView.leadingAnchor,
+            bottom: contentView.bottomAnchor,
+            trailing: contentView.trailingAnchor
+        )
     }
 
     func setupAdditionalConfiguration() {
         horizontalCollectionView.dataSource = self
         horizontalCollectionView.delegate = self
-        horizontalCollectionView.register(HomeProductItemCell.self,
-                                          forCellWithReuseIdentifier: HomeProductItemCell.reuseIdentifier)
+        horizontalCollectionView.register(HomeSpotlightItemCell.self,
+                                          forCellWithReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier)
     }
 }
 
-extension HomeProductCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
+
+extension HomeSpotlightCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.count ?? .zero
     }
@@ -78,9 +82,9 @@ extension HomeProductCell: UICollectionViewDataSource, UICollectionViewDelegateF
     ) -> UICollectionViewCell {
         guard let model = viewModel,
               let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: HomeProductItemCell.reuseIdentifier,
+                withReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier,
                 for: indexPath
-              ) as? HomeProductItemCell else {
+              ) as? HomeSpotlightItemCell else {
             return UICollectionViewCell()
         }
         cell.configure(with: model[indexPath.row])
@@ -92,7 +96,8 @@ extension HomeProductCell: UICollectionViewDataSource, UICollectionViewDelegateF
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 130, height: 130)
+        let itemWidth = collectionView.bounds.width - 72
+        return CGSize(width: itemWidth, height: collectionView.bounds.height)
     }
 
     func collectionView(
@@ -113,6 +118,12 @@ extension HomeProductCell: UICollectionViewDataSource, UICollectionViewDelegateF
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let model = viewModel else { return }
-        self.delegate?.clickCell(name: model[indexPath.row].name, description: model[indexPath.row].description)
+        self.delegate?.clickCell(
+            with: ProductDetailModel(
+                title: model[indexPath.row].name,
+                imageURL: model[indexPath.row].bannerURL,
+                description: model[indexPath.row].description
+            )
+        )
     }
 }

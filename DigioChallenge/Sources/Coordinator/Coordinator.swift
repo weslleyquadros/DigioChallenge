@@ -8,7 +8,7 @@
 import UIKit
 
 enum CoordinatorAction {
-    case details(name: String, description: String)
+    case details(model: ProductDetailModel)
 }
 
 protocol Coordinator {
@@ -39,8 +39,8 @@ public class DigioCoordinator: Coordinator {
 extension DigioCoordinator: MainCoordinatorDelegate {
     func navigation(action: CoordinatorAction) {
         switch action {
-        case let .details(name, description):
-            let controller = DetailsViewController(name: name, descriptionText: description)
+        case let .details(model):
+            let controller = DetailsViewController(model: model)
             rootViewController.pushViewController(controller, animated: true)
         }
     }

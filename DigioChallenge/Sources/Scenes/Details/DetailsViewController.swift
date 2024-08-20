@@ -9,12 +9,10 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    var name: String
-    var descriptionText: String
+    var detailModel: ProductDetailModel
 
-    init(name: String, descriptionText: String) {
-        self.name = name
-        self.descriptionText = descriptionText
+    init(model: ProductDetailModel) {
+        self.detailModel = model
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,12 +23,12 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = AppStyle.Colors.tealColor
         self.navigationController?.navigationBar.topItem?.title = ""
 
         let view = DetailsView()
         self.view = view
-        view.configure(name: name, description: descriptionText)
+        view.configure(withModel: detailModel)
     }
 
 }
