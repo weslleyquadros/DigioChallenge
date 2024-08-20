@@ -18,16 +18,16 @@ struct AppStyle {
         static func bold(size: CGFloat) -> UIFont {
             return UIFont(name: "ProximaNova-Bold", size: size) ?? UIFont.systemFont(ofSize: size)
         }
-        
+
         static func regular(size: CGFloat) -> UIFont {
             return UIFont(name: "ProximaNova-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
         }
-        
+
         static func light(size: CGFloat) -> UIFont {
             return UIFont(name: "ProximaNova-Light", size: size) ?? UIFont.systemFont(ofSize: size)
         }
     }
-    
+
     struct Assets {
         static let reloadIcon = UIImage(named: "reload_icon")
         static let noImageIcon = UIImage(named: "no-image-icon")

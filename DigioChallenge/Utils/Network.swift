@@ -11,7 +11,7 @@ public class Response {
     public var response: URLResponse?
     public var data: Data?
     public var error: Error?
-    
+
     public init(response: URLResponse? = nil, data: Data? = nil, error: Error? = nil) {
         self.response = response
         self.data = data
@@ -34,22 +34,21 @@ public enum HTTPMethod: String {
 public protocol RouterProtocol {
     var endpoint: String { get }
     var method: HTTPMethod { get }
-    var headers: [String : String]? { get }
+    var headers: [String: String]? { get }
     var body: Data? { get }
     var timeoutInterval: TimeInterval? { get }
     var additionalInfo: [String: Any]? { get }
 }
-            
+
 public protocol RequestProvider {
     func make(request: RouterProtocol, completion: @escaping (Response) -> Void)
 }
 
-
 public class NetworkRequest: RequestProvider {
-    
+
     public func make(request: RouterProtocol, completion: @escaping (Response) -> Void) {
         let url = URL(string: request.endpoint)!
-        
+
         var urlRequest = URLRequest(url: url, timeoutInterval: request.timeoutInterval ?? 0.0)
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.httpBody = request.body ?? nil
@@ -67,7 +66,7 @@ public class NetworkRequest: RequestProvider {
         }
 
         task.resume()
-        
+
     }
-    
+
 }

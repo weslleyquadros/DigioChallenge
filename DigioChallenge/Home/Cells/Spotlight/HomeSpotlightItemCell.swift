@@ -10,7 +10,7 @@ import UIKit
 final class HomeSpotlightItemCell: UICollectionViewCell, CodeView {
 
     static let reuseIdentifier = "HomeCardItemCell"
-    
+
     private let imageView = UIImageView()
     private let cardView = UIView()
 
@@ -28,7 +28,7 @@ final class HomeSpotlightItemCell: UICollectionViewCell, CodeView {
     }
 }
 
-//MARK: - CodeView
+// MARK: - CodeView
 
 extension HomeSpotlightItemCell {
 
@@ -36,14 +36,14 @@ extension HomeSpotlightItemCell {
         contentView.addSubview(cardView)
         cardView.addSubviewFillingSuperview(imageView)
     }
-    
+
     func setupConstraints() {
         cardView.anchor(leading: contentView.leadingAnchor,
                         trailing: contentView.trailingAnchor,
                         height: 160)
         cardView.centerInSuperview(imageView)
     }
-    
+
     func setupAdditionalConfiguration() {
         cardView.backgroundColor = .white
         cardView.layer.cornerRadius = 12

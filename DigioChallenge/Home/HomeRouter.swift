@@ -25,7 +25,7 @@ internal enum HomeRouter: RouterProtocol {
         }
     }
 
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return nil
     }
 
@@ -40,7 +40,7 @@ internal enum HomeRouter: RouterProtocol {
         }
     }
 
-    var additionalInfo: [String : Any]? {
+    var additionalInfo: [String: Any]? {
         return nil
     }
 

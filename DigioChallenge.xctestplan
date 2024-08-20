@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "BAC2AA72-2EC4-43F2-B098-476AAD4806CD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:DigioChallenge.xcodeproj",
+          "identifier" : "3143331C2C726E1C008E7077",
+          "name" : "DigioChallenge"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DigioChallenge.xcodeproj",
+      "identifier" : "3143331C2C726E1C008E7077",
+      "name" : "DigioChallenge"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DigioChallenge.xcodeproj",
+        "identifier" : "314333322C726E2B008E7077",
+        "name" : "DigioChallengeTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DigioChallenge.xcodeproj",
+        "identifier" : "3143333C2C726E2B008E7077",
+        "name" : "DigioChallengeUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

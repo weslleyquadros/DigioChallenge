@@ -8,9 +8,9 @@
 import UIKit
 
 final class HomeDigioCashCell: UICollectionViewCell, CodeView {
-    
+
     static let reuseIdentifier = "HomeDigioCashCell"
-    
+
     private let imageView = UIImageView()
 
     override init(frame: CGRect) {
@@ -27,7 +27,7 @@ final class HomeDigioCashCell: UICollectionViewCell, CodeView {
     }
 }
 
-//MARK: - CodeView
+// MARK: - CodeView
 
 extension HomeDigioCashCell {
     func buildViewHierarchy() {

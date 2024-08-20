@@ -16,14 +16,14 @@ extension UIImageView {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard error == nil else {
                 DispatchQueue.main.async {
                     self.image = AppStyle.Assets.noImageIcon
                 }
                 return
             }
-            
+
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self.image = image

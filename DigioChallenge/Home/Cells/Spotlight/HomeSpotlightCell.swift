@@ -8,8 +8,10 @@
 import UIKit
 
 final class HomeSpotlightCell: UICollectionViewCell, CodeView {
-    
+
     static let reuseIdentifier = "HomeSpotlightCell"
+
+    var delegate: HomeViewControllerClickDelegate?
 
     private let horizontalCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CarouselFlowLayout())
@@ -32,19 +34,19 @@ final class HomeSpotlightCell: UICollectionViewCell, CodeView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure(with model: [Spotlight]) {
         viewModel = model
     }
 }
 
-//MARK: - CodeView
+// MARK: - CodeView
 
 extension HomeSpotlightCell {
     func buildViewHierarchy() {
         contentView.addSubview(horizontalCollectionView)
     }
-    
+
     func setupConstraints() {
         horizontalCollectionView.anchor(
             top: contentView.topAnchor,
@@ -53,40 +55,64 @@ extension HomeSpotlightCell {
             trailing: contentView.trailingAnchor
         )
     }
-    
+
     func setupAdditionalConfiguration() {
         horizontalCollectionView.dataSource = self
         horizontalCollectionView.delegate = self
-        horizontalCollectionView.register(HomeSpotlightItemCell.self, forCellWithReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier)
+        horizontalCollectionView.register(HomeSpotlightItemCell.self,
+                                          forCellWithReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier)
     }
 }
 
-//MARK: - UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
 
 extension HomeSpotlightCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.count ?? .zero
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let model = viewModel,
-              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier, for: indexPath) as? HomeSpotlightItemCell else {
+              let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HomeSpotlightItemCell.reuseIdentifier,
+                for: indexPath
+              ) as? HomeSpotlightItemCell else {
             return UICollectionViewCell()
         }
         cell.configure(with: model[indexPath.row])
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let itemWidth = collectionView.bounds.width - 72
         return CGSize(width: itemWidth, height: collectionView.bounds.height)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = viewModel else { return }
+        self.delegate?.clickCell(name: model[indexPath.row].name, description: model[indexPath.row].description)
     }
 }

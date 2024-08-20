@@ -30,7 +30,13 @@ final class HomeViewModel: HomeViewModelProtocol {
 
             guard let response = result.data else {
                 DispatchQueue.main.async {
-                    self.onError?(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to load data."]))
+                    self.onError?(
+                        NSError(
+                            domain: "",
+                            code: 0,
+                            userInfo: [NSLocalizedDescriptionKey: "Failed to load data."]
+                        )
+                    )
                 }
                 return
             }
@@ -40,7 +46,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                 updatedSections = [.spotlight(model.spotlight),
                                    .cash(model.cash),
                                    .products(model.products)]
-                
+
                 DispatchQueue.main.async {
                     self.sections = updatedSections
                     self.homeData = model

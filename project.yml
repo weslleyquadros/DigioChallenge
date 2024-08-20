@@ -1,0 +1,48 @@
+name: DigioChallenge
+options:
+  bundleIdPrefix: com.weslleyquadros
+  deploymentTarget:
+    iOS: '13.0'
+
+targets:
+  DigioChallenge:
+    type: application
+    platform: iOS
+    sources:
+      - path: DigioChallenge/Sources
+    resources:
+      - path: DigioChallenge/Resources
+      - path: DigioChallenge/Base.lproj
+    settings:
+      base:
+        infoPlist: DigioChallenge/Supporting Files/Info.plist
+    preBuildScripts:
+      - name: SwiftLint
+        script: |
+          if which swiftlint >/dev/null; then
+            swiftlint
+          else
+            echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+          fi
+    scheme:
+      testTargets:
+        - DigioChallengeTests
+        - DigioChallengeUITests
+
+  DigioChallengeTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: DigioChallengeTests
+    settings:
+      base:
+        infoPlist: DigioChallenge/Supporting Files/Info.plist
+
+  DigioChallengeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: DigioChallengeUITests
+    settings:
+      base:
+        infoPlist: DigioChallenge/Supporting Files/Info.plist

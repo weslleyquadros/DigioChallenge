@@ -8,21 +8,21 @@
 import UIKit
 
 class HomeSectionHeaderView: UICollectionReusableView, CodeView {
-    
+
     static let reuseIdentifier = "HomeSectionHeaderView"
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = AppStyle.Fonts.bold(size: 18)
         label.textColor = AppStyle.Colors.primary
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -32,7 +32,7 @@ class HomeSectionHeaderView: UICollectionReusableView, CodeView {
     }
 }
 
-//MARK: - CodeView
+// MARK: - CodeView
 
 extension HomeSectionHeaderView {
     func setupConstraints() {

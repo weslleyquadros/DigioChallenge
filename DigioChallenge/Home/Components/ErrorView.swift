@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ErrorView: UIView, CodeView {
+final class ErrorView: UIView {
 
-    private let messageLabel: UILabel = {
+    internal let messageLabel: UILabel = {
         let label = UILabel()
         label.text = LocalizedString.genericError.localized
         label.textColor = AppStyle.Colors.primary
@@ -19,7 +19,7 @@ final class ErrorView: UIView, CodeView {
         return label
     }()
 
-    private let retryButton: UIButton = {
+    internal let retryButton: UIButton = {
         let button = UIButton()
         button.setImage(AppStyle.Assets.reloadIcon, for: .normal)
         button.tintColor = AppStyle.Colors.primary
@@ -35,12 +35,19 @@ final class ErrorView: UIView, CodeView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func buildViewHierarchy() {
+    internal func setRetryAction(target: Any, action: Selector) {
+        retryButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+}
+
+extension ErrorView: CodeView {
+
+    internal func buildViewHierarchy() {
         addSubview(retryButton)
         addSubview(messageLabel)
     }
-    
-    func setupConstraints() {
+
+    internal func setupConstraints() {
         retryButton.anchor(width: 60,
                            height: 60,
                            centerX: centerXAnchor,
@@ -52,9 +59,5 @@ final class ErrorView: UIView, CodeView {
                             paddingTop: 20,
                             paddingLeading: 20,
                             paddingTrailing: 20)
-    }
-
-    func setRetryAction(target: Any, action: Selector) {
-        retryButton.addTarget(target, action: action, for: .touchUpInside)
     }
 }

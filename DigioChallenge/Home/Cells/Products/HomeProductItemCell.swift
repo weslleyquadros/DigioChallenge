@@ -8,9 +8,9 @@
 import UIKit
 
 final class HomeProductItemCell: UICollectionViewCell, CodeView {
-    
+
     static let reuseIdentifier = "HomeProductItemCell"
-    
+
     private let imageView = UIImageView()
     private let cardView = UIView()
 
@@ -28,14 +28,14 @@ final class HomeProductItemCell: UICollectionViewCell, CodeView {
     }
 }
 
-//MARK: - CodeView
+// MARK: - CodeView
 
 extension HomeProductItemCell {
     func buildViewHierarchy() {
         contentView.addSubviewFillingSuperview(cardView)
         cardView.addSubview(imageView)
     }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             cardView.widthAnchor.constraint(equalToConstant: 130),
@@ -46,7 +46,7 @@ extension HomeProductItemCell {
             imageView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
+
     func setupAdditionalConfiguration() {
         cardView.backgroundColor = .white
         cardView.clipsToBounds = true

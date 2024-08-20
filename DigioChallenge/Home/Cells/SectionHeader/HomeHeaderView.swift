@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeHeaderView: UICollectionReusableView, CodeView {
-    
+
     static let reuseIdentifier = "HomeHeaderView"
 
     private let circleView = CircleView()

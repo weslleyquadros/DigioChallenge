@@ -57,7 +57,7 @@ extension UIView {
             view.heightAnchor.constraint(equalTo: heightAnchor, multiplier: heightRatio)
         ])
     }
-    
+
     /// Method to define constraints using anchors
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 leading: NSLayoutXAxisAnchor? = nil,
@@ -71,9 +71,9 @@ extension UIView {
                 height: CGFloat? = nil,
                 centerX: NSLayoutXAxisAnchor? = nil,
                 centerY: NSLayoutYAxisAnchor? = nil) {
-        
+
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         if let top = top {
             topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }

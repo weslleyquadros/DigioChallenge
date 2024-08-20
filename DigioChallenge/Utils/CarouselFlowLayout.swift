@@ -22,19 +22,39 @@ final class CarouselFlowLayout: UICollectionViewFlowLayout {
         }
     }
 
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
+    override func targetContentOffset(
+        forProposedContentOffset proposedContentOffset: CGPoint,
+        withScrollingVelocity velocity: CGPoint
+    ) -> CGPoint {
+        guard let collectionView = collectionView else {
+            return super.targetContentOffset(
+                forProposedContentOffset: proposedContentOffset,
+                withScrollingVelocity: velocity
+            )
+        }
 
-        let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.width, height: collectionView.bounds.height)
-        guard let layoutAttributes = super.layoutAttributesForElements(in: targetRect) else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
-        
+        let targetRect = CGRect(
+            x: proposedContentOffset.x,
+            y: 0,
+            width: collectionView.bounds.width,
+            height: collectionView.bounds.height
+        )
+        guard let layoutAttributes = super.layoutAttributesForElements(in: targetRect) else {
+            return super.targetContentOffset(
+                forProposedContentOffset: proposedContentOffset,
+                withScrollingVelocity: velocity
+            )
+        }
+
         var closestAttribute: UICollectionViewLayoutAttributes?
         for attributes in layoutAttributes {
-            if closestAttribute == nil || abs(attributes.center.x - proposedContentOffset.x - collectionView.bounds.width / 2) < abs(closestAttribute!.center.x - proposedContentOffset.x - collectionView.bounds.width / 2) {
+            if closestAttribute == nil ||
+                abs(attributes.center.x - proposedContentOffset.x - collectionView.bounds.width / 2) <
+                abs(closestAttribute!.center.x - proposedContentOffset.x - collectionView.bounds.width / 2) {
                 closestAttribute = attributes
             }
         }
-        
+
         return CGPoint(x: closestAttribute!.center.x - collectionView.bounds.width / 2, y: proposedContentOffset.y)
     }
 }
