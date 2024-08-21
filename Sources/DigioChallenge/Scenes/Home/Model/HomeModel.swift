@@ -8,28 +8,28 @@
 import Foundation
 
 // MARK: - HomeModel
-struct HomeModel: Decodable {
+struct HomeModel: Codable {
     let spotlight: [Spotlight]
     let products: [Product]
     let cash: Cash
 }
 
 // MARK: - Cash
-struct Cash: Decodable {
+struct Cash: Codable {
     let title: String
     let bannerURL: String
     let description: String
 }
 
 // MARK: - Product
-struct Product: Decodable {
+struct Product: Codable {
     let name: String
     let imageURL: String
     let description: String
 }
 
 // MARK: - Spotlight
-struct Spotlight: Decodable {
+struct Spotlight: Codable {
     let name: String
     let bannerURL: String
     let description: String
