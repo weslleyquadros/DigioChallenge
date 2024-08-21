@@ -59,3 +59,6 @@ This command should be executed at the root of the project.
 - **Updated README:** Includes detailed instructions on how to set up the project, run the make setup command, and open the project in Xcode.
 - **Use of make setup:** Clearly explains that all project files and configurations will be automatically generated when the make setup command is executed.
 - **Prevents Inclusion in Git:** Reinforces that the repository does not contain Xcode configuration files or dependency directories, and that these are generated at runtime.
+
+### To Do
+- Increase unit test coverage and create UI tests
