@@ -61,4 +61,4 @@ This command should be executed at the root of the project.
 - **Prevents Inclusion in Git:** Reinforces that the repository does not contain Xcode configuration files or dependency directories, and that these are generated at runtime.
 
 ### To Do
-- Increase unit test coverage and create UI tests
+- Create UI tests

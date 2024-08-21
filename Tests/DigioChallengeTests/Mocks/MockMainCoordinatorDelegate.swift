@@ -10,8 +10,10 @@ import Foundation
 
 class MockMainCoordinatorDelegate: MainCoordinatorDelegate {
     var navigationAction: CoordinatorAction?
+    var didNavigateToDetail = false
 
     func navigation(action: CoordinatorAction) {
         navigationAction = action
+        didNavigateToDetail = true
     }
 }

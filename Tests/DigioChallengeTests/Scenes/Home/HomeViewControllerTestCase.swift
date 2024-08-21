@@ -33,11 +33,113 @@ class HomeViewControllerTestCase: XCTestCase {
         super.tearDown()
     }
 
+    func testHomeViewControllerInit() {
+        let viewController = HomeViewController(viewModel: mockViewModel)
+        
+        XCTAssertNotNil(viewController.viewModel)
+        XCTAssertEqual(viewController.viewModel.sections.count, 0)
+    }
+
     func testViewDidLoad() {
         XCTAssertNotNil(sut.collectionView)
         XCTAssertNotNil(sut.errorView)
         XCTAssertTrue(sut.view.subviews.contains(sut.collectionView))
         XCTAssertFalse(sut.view.subviews.contains(sut.errorView))
+    }
+    
+    func testUpdateUI() {
+        mockViewModel.homeData = HomeModelDummy.makeHomeModel()
+
+        sut.updateUI()
+
+        XCTAssertTrue(sut.collectionView.visibleCells.allSatisfy { !$0.contentView.isShimmering })
+        XCTAssertTrue(sut.collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).allSatisfy { !$0.isShimmering })
+    }
+
+    func testSizeForItemAt() {
+        mockViewModel.sections = HomeModelDummy.makeHomeSections()
+        let expectedSizes = [
+            CGSize(width: sut.collectionView.bounds.width, height: 180),
+            CGSize(width: sut.collectionView.bounds.width - 48, height: 100),
+            CGSize(width: sut.collectionView.bounds.width, height: 150)
+        ]
+
+        for (index, expectedSize) in expectedSizes.enumerated() {
+            let size = sut.collectionView(
+                sut.collectionView,
+                layout: sut.collectionView.collectionViewLayout,
+                sizeForItemAt: IndexPath(row: 0, section: index)
+            )
+            XCTAssertEqual(size, expectedSize)
+        }
+    }
+
+    func testReferenceSizeForHeaderInSection() {
+        mockViewModel.sections = HomeModelDummy.makeHomeSections()
+        let expectedSizes = [
+            CGSize(width: sut.collectionView.bounds.width, height: 100),
+            CGSize(width: sut.collectionView.bounds.width, height: 65),
+            CGSize(width: sut.collectionView.bounds.width, height: 65)
+        ]
+
+        for (index, expectedSize) in expectedSizes.enumerated() {
+            let size = sut.collectionView(
+                sut.collectionView,
+                layout: sut.collectionView.collectionViewLayout,
+                referenceSizeForHeaderInSection: index
+            )
+            XCTAssertEqual(size, expectedSize)
+        }
+    }
+
+    func testViewForSupplementaryElementOfKind() {
+        mockViewModel.sections = HomeModelDummy.makeHomeSections()
+        sut.collectionView.reloadData()
+        sut.collectionView.layoutIfNeeded()
+
+        let headerView = sut.collectionView(
+            sut.collectionView,
+            viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader,
+            at: IndexPath(row: 0, section: 0)
+        ) as? HomeHeaderView
+
+        XCTAssertNotNil(headerView)
+        XCTAssertEqual(headerView?.userNameLabel.text, LocalizedString.homeTitle.localized)
+    }
+
+
+    func testDidSelectItemAt() {
+        mockViewModel.sections = HomeModelDummy.makeHomeSections()
+        mockViewModel.homeData = HomeModelDummy.makeHomeModel()
+        
+        sut.collectionView(
+            sut.collectionView,
+            didSelectItemAt: IndexPath(row: 0, section: 1)
+        )
+        
+        if case let .details(model) = mockDelegate.navigationAction {
+            XCTAssertEqual(model.title, mockViewModel.homeData?.cash.title)
+            XCTAssertEqual(model.imageURL, mockViewModel.homeData?.cash.bannerURL)
+            XCTAssertEqual(model.description, mockViewModel.homeData?.cash.description)
+        } else {
+            XCTFail("Expected .details action")
+        }
+    }
+
+    func testSetupBindings_onSuccess() {
+        sut.viewDidLoad()
+        
+        mockViewModel.onSuccess?()
+        
+        XCTAssertTrue(sut.collectionView.visibleCells.allSatisfy { !$0.contentView.isShimmering })
+    }
+
+    func testSetupBindings_onError() {
+        sut.viewDidLoad()
+
+        mockViewModel.onError?(HomeDataError.fetchFailed)
+        
+        XCTAssertTrue(sut.view.subviews.contains(sut.errorView))
     }
 
     func testShowErrorView() {

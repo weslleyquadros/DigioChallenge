@@ -12,7 +12,12 @@ class HomeHeaderView: UICollectionReusableView, CodeView {
     static let reuseIdentifier = "HomeHeaderView"
 
     private let circleView = CircleView()
-    private let userNameLabel = UILabel()
+    var userNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = AppStyle.Fonts.bold(size: 18)
+        label.textColor = AppStyle.Colors.primary
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +27,6 @@ class HomeHeaderView: UICollectionReusableView, CodeView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func setupAdditionalConfiguration() {
-        userNameLabel.font = AppStyle.Fonts.bold(size: 18)
-        userNameLabel.textColor = AppStyle.Colors.primary
     }
 
     func buildViewHierarchy() {

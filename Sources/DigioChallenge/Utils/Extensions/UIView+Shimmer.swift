@@ -8,6 +8,11 @@
 import UIKit
 
 extension UIView {
+
+    var isShimmering: Bool {
+        return layer.mask != nil
+    }
+
     /// Method to start the shimmer animation
     func startShimmering() {
         let light = UIColor.white.cgColor
@@ -34,4 +39,5 @@ extension UIView {
     func stopShimmering() {
         layer.mask = nil
     }
+
 }

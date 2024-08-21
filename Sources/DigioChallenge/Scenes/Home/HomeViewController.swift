@@ -64,17 +64,7 @@ class HomeViewController: UIViewController {
         viewModel.fetchHomeData()
     }
 
-    private func setupBindings() {
-        viewModel.onSuccess = { [weak self] in
-            self?.updateUI()
-        }
-
-        viewModel.onError = { [weak self] _ in
-            self?.showErrorView()
-        }
-    }
-
-    private func updateUI() {
+    func updateUI() {
         if viewModel.homeData != nil {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -89,6 +79,16 @@ class HomeViewController: UIViewController {
                     header.stopShimmering()
                 }
             }
+        }
+    }
+
+    private func setupBindings() {
+        viewModel.onSuccess = { [weak self] in
+            self?.updateUI()
+        }
+
+        viewModel.onError = { [weak self] _ in
+            self?.showErrorView()
         }
     }
 
