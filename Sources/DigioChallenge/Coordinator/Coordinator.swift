@@ -36,6 +36,12 @@ public class DigioCoordinator: Coordinator {
 
 }
 
+extension DigioCoordinator: Equatable {
+    public static func == (lhs: DigioCoordinator, rhs: DigioCoordinator) -> Bool {
+        return lhs.rootViewController === rhs.rootViewController
+    }
+}
+
 extension DigioCoordinator: MainCoordinatorDelegate {
     func navigation(action: CoordinatorAction) {
         switch action {
